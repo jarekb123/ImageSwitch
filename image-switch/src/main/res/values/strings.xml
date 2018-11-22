@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ImageSwitch</string>
+    <string name="image_switch_content">ImageSwitch image</string>
+</resources>
