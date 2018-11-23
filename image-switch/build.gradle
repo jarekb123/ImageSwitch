@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.github.dcendents.android-maven'
 
 publish {
     userOrg = 'jbutajlo'
@@ -11,6 +12,14 @@ publish {
     publishVersion = '0.1.1'
     desc = 'ImageSwitch - Custom View which shows image, which resource depends on state (checked/unchecked)'
     website = 'https://github.com/jarekb123/ImageSwitch'
+}
+
+install {
+    repositories.mavenInstaller {
+        pom.groupId = 'com.butajlo.imageswitch'
+        pom.version = '0.1.1'
+        pom.artifactId = 'image-switch'
+    }
 }
 
 android {

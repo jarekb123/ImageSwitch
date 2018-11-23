@@ -6,6 +6,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenLocal()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
@@ -18,6 +19,11 @@ buildscript {
     }
 }
 
+plugins {
+    // This plugin allows publishing android libraries
+    id "com.github.dcendents.android-maven" version "2.0"
+}
+
 allprojects {
     repositories {
         google()
@@ -25,6 +31,7 @@ allprojects {
     }
 }
 
-task clean(type: Delete) {
+task customClean(type: Delete) {
     delete rootProject.buildDir
 }
+clean.dependsOn customClean
