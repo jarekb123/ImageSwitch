@@ -1,0 +1,8 @@
+0.1.1
+- Update build.gradle files - uploading library to bintray and jcenter is now more simple
+- Add CHANGELOG to Github repository
+
+0.1.0
+- Implement ImageSwitch with two states: checked/unchecked
+- Add OnStateUpdated interface
+- Add unit tests for ImageSwitchViewModel
