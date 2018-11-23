@@ -32,7 +32,11 @@ class ImageSwitch : FrameLayout {
     }
 
     private val viewModel by lazy { ImageSwitchViewModel() }
+
+    private val stateListeners by lazy { mutableSetOf<OnStateUpdatedListener>() }
+
     private val imageObserver = Observer<Int> { setImage(it ?: 0) }
+    private val stateObserver = Observer<Boolean> { stateUpdated(it ?: false) }
 
     private fun init(attrs: AttributeSet) {
         context.theme.obtainStyledAttributes(
@@ -40,6 +44,9 @@ class ImageSwitch : FrameLayout {
             R.styleable.ImageSwitch,
             0, 0
         ).apply {
+            if(!hasValue(R.styleable.ImageSwitch_uncheckedImage) || !hasValue(R.styleable.ImageSwitch_checkedImage)) {
+                throw RuntimeException("ImageSwitch needs 'custom:uncheckedImage' and 'custom:checkedImage' attributes set")
+            }
             setCheckedImage(getResourceId(R.styleable.ImageSwitch_checkedImage, 0))
             setUncheckedImage(getResourceId(R.styleable.ImageSwitch_uncheckedImage, 0))
         }
@@ -50,11 +57,14 @@ class ImageSwitch : FrameLayout {
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         viewModel.imageRes.observeForever(imageObserver)
+        viewModel.isChecked.observeForever(stateObserver)
     }
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
         viewModel.imageRes.removeObserver(imageObserver)
+        viewModel.isChecked.removeObserver(stateObserver)
+        stateListeners.clear()
     }
 
     fun setCheckedImage(@DrawableRes imageRes: Int) {
@@ -65,12 +75,24 @@ class ImageSwitch : FrameLayout {
         viewModel.setUncheckedImage(imageRes)
     }
 
+    fun addOnStateUpdateListener(listener: OnStateUpdatedListener) {
+        stateListeners.add(listener)
+    }
+
     private fun onClick(v: View) {
         viewModel.onClick()
     }
 
     private fun setImage(imageRes: Int) {
         iv_image_switch.setImageResource(imageRes)
+    }
+
+    private fun stateUpdated(isChecked: Boolean) {
+        stateListeners.forEach { it.stateUpdated(isChecked) }
+    }
+
+    interface OnStateUpdatedListener {
+        fun stateUpdated(isChecked: Boolean)
     }
 
 }

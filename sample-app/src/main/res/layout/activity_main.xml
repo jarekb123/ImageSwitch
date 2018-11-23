@@ -12,8 +12,8 @@
     <com.butajlo.imageswitch.ImageSwitch
         android:layout_width="40dp"
         android:layout_height="40dp"
-        custom:checkedImage="@drawable/ic_android_black_24dp"
-        custom:uncheckedImage="@drawable/ic_android_green_24dp"
+        custom:checkedImage="@drawable/ic_android_green_24dp"
+        custom:uncheckedImage="@drawable/ic_android_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

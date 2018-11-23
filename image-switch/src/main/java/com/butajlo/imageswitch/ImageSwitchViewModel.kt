@@ -33,17 +33,18 @@ class ImageSwitchViewModel : ViewModel() {
         updateImage()
     }
 
-    private fun updateImage() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
     fun setUncheckedImage(@DrawableRes imageRes: Int) {
         uncheckedImageRes.value = imageRes
+        updateImage()
     }
 
     fun setCheckedState(isChecked: Boolean) {
         _isChecked.value = isChecked
-        _currentImageRes.value = if (isChecked) {
+        updateImage()
+    }
+
+    private fun updateImage() {
+        _currentImageRes.value = if (_isChecked.value ?: return) {
             checkedImageRes.value
         } else {
             uncheckedImageRes.value
