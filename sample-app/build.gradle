@@ -14,6 +14,14 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    dexOptions {
+        /*Android studio will first dex the libraries before dex-ing the app module.
+        If you have a library module with a same package name as your app module,
+        this 'pre-dexing' will result in creation of a BuildConfig.java in the same package as for the app. */
+        preDexLibraries false
+    }
+
     buildTypes {
         release {
             minifyEnabled false

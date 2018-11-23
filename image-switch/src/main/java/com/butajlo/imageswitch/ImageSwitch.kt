@@ -44,7 +44,9 @@ class ImageSwitch : FrameLayout {
             R.styleable.ImageSwitch,
             0, 0
         ).apply {
-            if(!hasValue(R.styleable.ImageSwitch_uncheckedImage) || !hasValue(R.styleable.ImageSwitch_checkedImage)) {
+            if(!hasValue(R.styleable.ImageSwitch_uncheckedImage) || !hasValue(
+                    R.styleable.ImageSwitch_checkedImage
+                )) {
                 throw RuntimeException("ImageSwitch needs 'custom:uncheckedImage' and 'custom:checkedImage' attributes set")
             }
             setCheckedImage(getResourceId(R.styleable.ImageSwitch_checkedImage, 0))

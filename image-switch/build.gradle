@@ -1,19 +1,26 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+publish {
+    userOrg = 'jbutajlo'
+    repoName = 'ImageSwitch'
+    groupId = 'com.butajlo.imageswitch'
+    artifactId = 'image-switch'
+    publishVersion = '0.1.0'
+    desc = 'ImageSwitch - Custom View which shows image, which resource depends on state (checked/unchecked)'
+    website = 'https://github.com/jarekb123/ImageSwitch'
+}
+
 android {
     compileSdkVersion 28
-
-
 
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-
-
     }
 
     buildTypes {

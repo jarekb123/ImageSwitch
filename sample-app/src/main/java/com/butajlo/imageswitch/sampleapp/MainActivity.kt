@@ -1,4 +1,4 @@
-package com.butajlo.imageswitch
+package com.butajlo.imageswitch.sampleapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
