@@ -9,7 +9,7 @@ publish {
     repoName = 'ImageSwitch'
     groupId = 'com.butajlo.imageswitch'
     artifactId = 'image-switch'
-    publishVersion = '0.1.4'
+    publishVersion = '0.1.5'
     desc = 'ImageSwitch - Custom View which shows image, which resource depends on state (checked/unchecked)'
     website = 'https://github.com/jarekb123/ImageSwitch'
 }
@@ -17,7 +17,7 @@ publish {
 install {
     repositories.mavenInstaller {
         pom.groupId = 'com.butajlo.imageswitch'
-        pom.version = '0.1.4'
+        pom.version = '0.1.5'
         pom.artifactId = 'image-switch'
     }
 }
@@ -28,8 +28,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 4
-        versionName "0.1.4"
+        versionCode 6
+        versionName "0.1.5"
     }
 
     buildTypes {
