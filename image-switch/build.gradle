@@ -9,7 +9,7 @@ publish {
     repoName = 'ImageSwitch'
     groupId = 'com.butajlo.imageswitch'
     artifactId = 'image-switch'
-    publishVersion = '0.1.1'
+    publishVersion = '0.1.2'
     desc = 'ImageSwitch - Custom View which shows image, which resource depends on state (checked/unchecked)'
     website = 'https://github.com/jarekb123/ImageSwitch'
 }
@@ -17,7 +17,7 @@ publish {
 install {
     repositories.mavenInstaller {
         pom.groupId = 'com.butajlo.imageswitch'
-        pom.version = '0.1.1'
+        pom.version = '0.1.2'
         pom.artifactId = 'image-switch'
     }
 }
@@ -34,7 +34,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
