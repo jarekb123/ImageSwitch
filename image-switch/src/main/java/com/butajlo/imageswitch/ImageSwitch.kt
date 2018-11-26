@@ -3,12 +3,12 @@ package com.butajlo.imageswitch
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
-import android.widget.FrameLayout
+import android.widget.RelativeLayout
 import androidx.annotation.DrawableRes
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.view_image_switch.view.*
 
-class ImageSwitch : FrameLayout {
+class ImageSwitch : RelativeLayout {
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         init(attrs)

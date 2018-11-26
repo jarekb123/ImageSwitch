@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class ImageSwitchViewModel : ViewModel() {
+internal class ImageSwitchViewModel : ViewModel() {
 
     private val _isChecked = MutableLiveData<Boolean>()
     val isChecked: LiveData<Boolean>
